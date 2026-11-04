@@ -9,6 +9,11 @@ set rootdir=%~dp0mikhmon
 set title=Mikhmon Webserver
 set c=by Laksamadi Guko
 
+if not exist "%workdir%\m-server.exe" (
+  echo  Preparing PHP, please wait...
+  tar -xf "%workdir%\php.zip" -C "%workdir%"
+)
+
 echo.
 echo.
 echo 	    MMNdhyssssssssssssssssssyhdNMM
@@ -29,6 +34,7 @@ echo 	    MMNmhysssssssyhhhhhhhhhhddmMMM
 echo.
 echo 	    	    MIKHMON SERVER
 echo 		  by Laksamadi Guko
+echo 	     Community Edition - mikhmon.pro
 echo.
 timeout /t 2 >nul
 goto check
