@@ -153,6 +153,7 @@ if ($id == "login" || substr($url, -1) == "p") {
       fputs($f, $line);
   }
   fclose($f);
+  if (function_exists('opcache_invalidate')) opcache_invalidate('./include/config.php', true);
   echo "<script>window.location='./admin.php?id=sessions'</script>";
 } elseif ($id == "about") {
   include_once('./include/menu.php');

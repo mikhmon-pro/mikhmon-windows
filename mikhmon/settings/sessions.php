@@ -41,13 +41,15 @@ if (!isset($_SESSION["mikhmon"])) {
       $newcontent = str_replace((string)$cari[$i], (string)$ganti[$i], "$content");
       file_put_contents("./include/config.php", "$newcontent");
     }
+    if (function_exists('opcache_invalidate')) opcache_invalidate('./include/config.php', true);
 
   
   $gen = '<?php $qrbt="' . $qrbt . '";?>';
           $key = './include/quickbt.php';
           $handle = fopen($key, 'w') or die('Cannot open file:  ' . $key);
-          $data = $gen;
-          fwrite($handle, $data);
+          fwrite($handle, $gen);
+          fclose($handle);
+          if (function_exists('opcache_invalidate')) opcache_invalidate($key, true);
     echo "<script>window.location='./admin.php?id=sessions'</script>";
   }
 

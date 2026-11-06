@@ -50,9 +50,9 @@ if (isset($_POST['save'])) {
 	$template = './voucher/' . $telplatet . '.php';
 	$handle = fopen($template, 'w') or die('Cannot open file:  ' . $template);
 
-	$data = ($_POST['editor']);
-
-	fwrite($handle, $data);
+	fwrite($handle, $_POST['editor']);
+	fclose($handle);
+	if (function_exists('opcache_invalidate')) opcache_invalidate($template, true);
 		
 		//header("Location:$url");
 }

@@ -24,16 +24,17 @@ if (!isset($_SESSION["mikhmon"])) {
 } else {
 
   if ($id == "settings" && explode("-",$router)[0] == "new") {
-    $data = '$data';
+    $datavar = '$data';
     $f = fopen('./include/config.php', 'a');
     fwrite($f, "\n'$'data['".$router."'] = array ('1'=>'".$router."!','".$router."@|@','".$router."#|#','".$router."%','".$router."^','".$router."&Rp','".$router."*10','".$router."(1','".$router.")','".$router."=10','".$router."@!@disable');");
     fclose($f);
     $search = "'$'data";
-    $replace = (string)"$data";
+    $replace = (string)$datavar;
     $file = file("./include/config.php");
     $content = file_get_contents("./include/config.php");
     $newcontent = str_replace((string)$search, (string)$replace, "$content");
     file_put_contents("./include/config.php", "$newcontent");
+    if (function_exists('opcache_invalidate')) opcache_invalidate('./include/config.php', true);
     echo "<script>window.location='./admin.php?id=settings&session=" . $router . "'</script>";
   }
 
@@ -70,6 +71,7 @@ if (!isset($_SESSION["mikhmon"])) {
       $newcontent = str_replace((string)$search[$i], (string)$replace[$i], "$content");
       file_put_contents("./include/config.php", "$newcontent");
     }
+    if (function_exists('opcache_invalidate')) opcache_invalidate('./include/config.php', true);
     $_SESSION["connect"] = "";
     echo "<script>window.location='./admin.php?id=settings&session=" . $sesname . "'</script>";
   }
