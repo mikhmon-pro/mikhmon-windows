@@ -5,7 +5,7 @@
 > ### ⚡ Prefer not to keep a PC running?
 > **[Mikhmon Online at mikhmon.pro: just Rp10.000/month, tunnel included for up to 100 routers →](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-windows)**
 
-🇮🇩 [Baca dalam Bahasa Indonesia](#bahasa-indonesia)
+🇬🇧 **English** · 🇮🇩 [Bahasa Indonesia](#bahasa-indonesia)
 
 ## Download
 
@@ -28,19 +28,48 @@ To stop the server, choose **9-Stop Server** in the menu.
 | `php/` | A portable PHP web server (`m-server.exe`) |
 | `MikhmonServer.cmd` | The start and stop menu |
 
+---
+
 ## Bahasa Indonesia
 
-**Mikhmon untuk Windows** menjalankan Mikhmon v3 di PC tanpa perlu install XAMPP. Ekstrak ZIP-nya, klik dua kali `MikhmonServer.cmd`, lalu buka http://127.0.0.1:8080. Sudah mendukung **RouterOS v6 dan v7**.
+🇬🇧 [English](#mikhmon-for-windows-local-mikhmon-v3-server-for-pc-routeros-v6-and-v7) · 🇮🇩 **Bahasa Indonesia**
+
+**Mikhmon untuk Windows** menjalankan [Mikhmon v3 Community Edition](https://github.com/mikhmon-pro/mikhmon-v3) di PC Windows kamu. Tidak perlu XAMPP atau install PHP terpisah. Ekstrak ZIP-nya, klik dua kali `MikhmonServer.cmd`, lalu buka Mikhmon di browser. Sudah mendukung **RouterOS v6 dan RouterOS v7**.
 
 > ### ⚡ Malas menyalakan PC terus?
 > **[Mikhmon Online di mikhmon.pro: cuma Rp10.000/bulan, sudah termasuk tunnel untuk hingga 100 router →](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-windows)**
 
-**[Download Mikhmon untuk Windows dari mikhmon.pro](https://mikhmon.pro/download)**
+### Download
 
-## Credits
+**[Download Mikhmon untuk Windows (ZIP) di mikhmon.pro](https://mikhmon.pro/download)**. PHP dan Mikhmon v3 3.21 sudah ada di dalamnya, jadi langsung bisa dijalankan.
+
+### Cara pakai
+
+1. Ekstrak ZIP ke sebuah folder, misalnya `C:\Mikhmon`.
+2. Klik dua kali **`MikhmonServer.cmd`**.
+3. Pilih browser di menu, atau buka sendiri http://127.0.0.1:8080. Kalau port 8080 sedang dipakai, server memakai port 8088.
+4. Login dengan `mikhmon` / `1234` lalu tambahkan router kamu.
+
+Untuk mematikan server, pilih **9-Stop Server** di menu.
+
+### Isi paket
+
+| Folder | Isi |
+|---|---|
+| `mikhmon/` | Mikhmon v3 Community Edition 3.21, mendukung RouterOS v6 dan v7 ([perubahan](https://github.com/mikhmon-pro/mikhmon-v3#yang-baru-di-v321-community-edition)) |
+| `php/` | Web server PHP portable (`m-server.exe`) |
+| `MikhmonServer.cmd` | Menu untuk menyalakan dan mematikan server |
+
+---
+
+## Credits / Kredit
 
 Mikhmon and Mikhmon Webserver were created by **Laksamadi Guko** ([laksa19](https://github.com/laksa19)). This is a fork of [laksa19/Mikhmon-Webserver](https://github.com/laksa19/Mikhmon-Webserver). Mikhmon is licensed under the GNU GPL v2.
+
+Mikhmon dan Mikhmon Webserver dibuat oleh **Laksamadi Guko** ([laksa19](https://github.com/laksa19)). Ini adalah fork dari [laksa19/Mikhmon-Webserver](https://github.com/laksa19/Mikhmon-Webserver). Mikhmon berlisensi GNU GPL v2.
 
 ---
 
 Maintained by [Mikhmon Pro](https://mikhmon.pro). **[Try Mikhmon Online: Rp10.000/month, tunnel included for up to 100 routers](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-windows)**
+
+Dikelola oleh [Mikhmon Pro](https://mikhmon.pro). **[Coba Mikhmon Online: Rp10.000/bulan, sudah termasuk tunnel untuk hingga 100 router](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-windows)**

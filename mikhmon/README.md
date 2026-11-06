@@ -7,7 +7,7 @@
 >
 > It's the same Mikhmon in your browser, with no PC or server to keep running.
 
-🇮🇩 [Baca dalam Bahasa Indonesia](#bahasa-indonesia)
+🇬🇧 **English** · 🇮🇩 [Bahasa Indonesia](#bahasa-indonesia)
 
 ## Download
 
@@ -53,19 +53,66 @@ Then open http://localhost:8080.
 
 The default login is `mikhmon` / `1234`. Change it in **Settings → Admin** after your first login.
 
+---
+
 ## Bahasa Indonesia
 
-**Mikhmon v3 Community Edition** adalah Mikhmon (MikroTik Hotspot Monitor) versi klasik yang diperbarui agar jalan di **RouterOS v6 dan RouterOS v7**. Kamu bisa membuat dan mencetak voucher hotspot, mengelola user dan user profile, serta melihat laporan penjualan langsung dari browser.
+🇬🇧 [English](#mikhmon-v3-mikrotik-hotspot-monitor-for-routeros-v6-and-v7) · 🇮🇩 **Bahasa Indonesia**
+
+**Mikhmon v3 Community Edition** adalah Mikhmon (MikroTik Hotspot Monitor) versi klasik yang diperbarui agar jalan di **RouterOS v6 dan RouterOS v7**. Kamu bisa membuat dan mencetak voucher hotspot, mengelola user dan user profile hotspot, serta melihat laporan penjualan, semuanya dari browser. Tidak perlu User Manager atau RADIUS.
 
 > ### ⚡ Malas install?
 > **[Mikhmon Online di mikhmon.pro: cuma Rp10.000/bulan, sudah termasuk tunnel untuk hingga 100 router →](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-v3)**
+>
+> Mikhmon yang sama di browser, tanpa PC atau server yang harus terus menyala.
 
-- **Download Mikhmon v3 (ZIP)** dan **Mikhmon untuk Windows (PC)**: [mikhmon.pro/download](https://mikhmon.pro/download)
-- **Mendukung RouterOS v7.** Masa aktif voucher dan laporan penjualan memahami format tanggal baru RouterOS 7.10 ke atas.
-- **Setelah update:** buka setiap **User Profile** di Mikhmon lalu klik **Save** satu kali.
-- Login default: `mikhmon` / `1234`.
+### Download
 
-## Credits and license
+| Paket | Untuk | Link |
+|---|---|---|
+| **Mikhmon v3 (ZIP)** | Web server PHP, hosting, STB/Armbian atau Raspberry Pi | [Download di mikhmon.pro](https://mikhmon.pro/download) |
+| **Mikhmon untuk Windows** | Dijalankan langsung di PC Windows (PHP sudah termasuk, cukup klik dua kali) | [Download di mikhmon.pro](https://mikhmon.pro/download) · [source](https://github.com/mikhmon-pro/mikhmon-windows) |
+
+Kamu juga bisa memakai **Code → Download ZIP** di halaman ini.
+
+### Yang baru di v3.21 (Community Edition)
+
+- **Mendukung RouterOS v7.** RouterOS 7.10 ke atas menulis tanggal sebagai `2026-11-04`, bukan `nov/04/2026`. Script on-login lama menulis tanggal kedaluwarsa dan catatan penjualan yang rusak di RouterOS v7. Script baru memahami kedua format.
+- **Masa aktif voucher diperbaiki di v6 dan v7.** Monitor kedaluwarsa membaca kedua format tanggal, jadi user yang habis masa aktifnya dihapus atau masuk mode notice tepat waktu.
+- **Laporan penjualan tetap jalan.** Catatan penjualan selalu ditulis dalam format tanggal asli Mikhmon, jadi laporan harian, bulanan dan resume tetap benar setelah RouterOS di-upgrade.
+- **Perbaikan parsing API.** Nilai yang mengandung `=` (script, comment) tidak lagi terpotong.
+- Sudah diuji langsung di RouterOS 6.49 dan 7.23.
+
+> Setelah update, buka setiap **User Profile** di Mikhmon lalu klik **Save** satu kali. Ini akan menulis script on-login yang baru ke router kamu.
+
+### Fitur
+
+- User hotspot: tambah, generate massal, edit, reset, hapus dan export (CSV atau script)
+- User profile dengan masa aktif, harga, mode kedaluwarsa (remove atau notice, dengan atau tanpa catatan penjualan) dan MAC lock
+- Cetak voucher dengan template yang bisa diedit, QR code dan quick print
+- Laporan penjualan live, plus laporan penjualan harian dan bulanan serta resume
+- Dashboard dengan CPU, memori dan traffic, user aktif, host, IP binding, DHCP lease dan log
+- Banyak router (session), tema dan bahasa (ID, EN, ES, TL, TR)
+
+### Instalasi
+
+**Di server PHP (Linux, hosting, STB, Raspberry Pi):** ekstrak ZIP ke web root lalu buka di browser. Cukup PHP 7.x atau 8.x dengan ekstensi `sockets`.
+
+**Dengan Docker:**
+
+```bash
+docker run --rm -p 8080:80 -v "$PWD":/var/www/html php:8.2-apache
+```
+
+Lalu buka http://localhost:8080.
+
+**Di Windows:** pakai [Mikhmon untuk Windows](https://mikhmon.pro/download). Ekstrak lalu jalankan `MikhmonServer.cmd`.
+
+Login default: `mikhmon` / `1234`. Ganti di **Settings → Admin** setelah login pertama.
+
+---
+
+## Credits and license / Kredit dan lisensi
 
 Mikhmon was created by **Laksamadi Guko** ([laksa19](https://github.com/laksa19)). This Community Edition is a fork of [laksa19/mikhmonv3](https://github.com/laksa19/mikhmonv3) and keeps the original author's credits. The original changelog is in [CHANGELOG-ORIGINAL.md](CHANGELOG-ORIGINAL.md).
 
@@ -73,6 +120,10 @@ The RouterOS API class is based on [BenMenking/routeros-api](https://github.com/
 
 Licensed under the [GNU GPL v2](LICENSE).
 
+Mikhmon dibuat oleh **Laksamadi Guko** ([laksa19](https://github.com/laksa19)). Community Edition ini adalah fork dari [laksa19/mikhmonv3](https://github.com/laksa19/mikhmonv3) dan tetap mencantumkan kredit pembuat aslinya. Changelog asli ada di [CHANGELOG-ORIGINAL.md](CHANGELOG-ORIGINAL.md). Class RouterOS API berbasis [BenMenking/routeros-api](https://github.com/BenMenking/routeros-api). Berlisensi [GNU GPL v2](LICENSE).
+
 ---
 
 Maintained by [Mikhmon Pro](https://mikhmon.pro). **[Try Mikhmon Online: Rp10.000/month, tunnel included for up to 100 routers](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-v3)**
+
+Dikelola oleh [Mikhmon Pro](https://mikhmon.pro). **[Coba Mikhmon Online: Rp10.000/bulan, sudah termasuk tunnel untuk hingga 100 router](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-v3)**
