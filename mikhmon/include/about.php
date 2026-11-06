@@ -71,7 +71,7 @@ if (!isset($_SESSION["mikhmon"])) {
   </ul>
 </p>
 <p>
-  Mikhmon v3.21 Community Edition: dukungan RouterOS v6 dan v7, dirawat oleh
+  Mikhmon v3.21.1 Community Edition: dukungan RouterOS v6 dan v7, dirawat oleh
   <a href="https://github.com/mikhmon-pro/mikhmon-v3" target="_blank">Mikhmon Pro</a>.
   Mau tanpa install? <a href="https://mikhmon.pro/fast?utm_source=mikhmon-v3&amp;utm_medium=about&amp;utm_campaign=community" target="_blank"><b>Mikhmon Online cuma Rp10.000/bulan, sudah termasuk tunnel untuk hingga 100 router.</b></a>
 </p>

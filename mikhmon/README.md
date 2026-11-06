@@ -25,6 +25,7 @@ You can also use **Code → Download ZIP** on this page.
 - **Sales reports keep working.** Sales records are always written in Mikhmon's original date format, so daily, monthly and resume reports stay correct after you upgrade RouterOS.
 - **API parsing fix.** Values that contain `=` (scripts, comments) are no longer cut off.
 - Tested on live RouterOS 6.49 and 7.23.
+- **3.21.1:** runs on PHP 8.5 (the RouterOS API class no longer uses functions removed in PHP 8), and the dashboard no longer crashes on a wrong interface setting.
 
 > After upgrading, open each **User Profile** in Mikhmon and click **Save** once. This writes the new on-login script to your router.
 
@@ -82,6 +83,7 @@ Kamu juga bisa memakai **Code → Download ZIP** di halaman ini.
 - **Laporan penjualan tetap jalan.** Catatan penjualan selalu ditulis dalam format tanggal asli Mikhmon, jadi laporan harian, bulanan dan resume tetap benar setelah RouterOS di-upgrade.
 - **Perbaikan parsing API.** Nilai yang mengandung `=` (script, comment) tidak lagi terpotong.
 - Sudah diuji langsung di RouterOS 6.49 dan 7.23.
+- **3.21.1:** jalan di PHP 8.5 (class API RouterOS tidak lagi memakai fungsi yang sudah dihapus di PHP 8), dan dashboard tidak lagi error kalau setting interface salah.
 
 > Setelah update, buka setiap **User Profile** di Mikhmon lalu klik **Save** satu kali. Ini akan menulis script on-login yang baru ke router kamu.
 

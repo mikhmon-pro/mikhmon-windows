@@ -9,7 +9,7 @@
 
 ## Download
 
-**[Download Mikhmon for Windows (ZIP) from mikhmon.pro](https://mikhmon.pro/download)**. PHP 8.5 and Mikhmon v3 3.21 are already inside, so it's ready to run.
+**[Download Mikhmon for Windows (ZIP) from mikhmon.pro](https://mikhmon.pro/download)**. PHP 8.5 and Mikhmon v3 3.21.1 are already inside, so it's ready to run.
 
 **Needs:** 64-bit Windows 10 or 11. If PHP can't start, the menu links you to the [Microsoft Visual C++ Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe), which most PCs already have.
 
@@ -45,7 +45,7 @@ The menu shows the address for this PC and for other devices on the same network
 
 ### Download
 
-**[Download Mikhmon untuk Windows (ZIP) di mikhmon.pro](https://mikhmon.pro/download)**. PHP 8.5 dan Mikhmon v3 3.21 sudah ada di dalamnya, jadi langsung bisa dijalankan.
+**[Download Mikhmon untuk Windows (ZIP) di mikhmon.pro](https://mikhmon.pro/download)**. PHP 8.5 dan Mikhmon v3 3.21.1 sudah ada di dalamnya, jadi langsung bisa dijalankan.
 
 **Butuh:** Windows 10 atau 11 64-bit. Kalau PHP tidak bisa jalan, menu akan mengarahkan kamu ke [Microsoft Visual C++ Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe), yang biasanya sudah ada di kebanyakan PC.
 
