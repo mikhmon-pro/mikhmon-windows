@@ -235,7 +235,8 @@ if (!isset($_SESSION["mikhmon"])) {
               <div class="card-body">
   
                   <?php $getinterface = $API->comm("/interface/print");
-                  $interface = $getinterface[$iface - 1]['name']; 
+                  $ifidx = max(0, (int)$iface - 1);
+                  $interface = isset($getinterface[$ifidx]['name']) ? $getinterface[$ifidx]['name'] : ''; 
                   /*$TotalReg = count($getinterface);
                   for ($i = 0; $i < $TotalReg; $i++) {
                     echo $getinterface[$i]['name'].'<br>';

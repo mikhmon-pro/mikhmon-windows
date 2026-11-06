@@ -101,7 +101,7 @@ class RouterosAPI
             $this->debug('Connection attempt #' . $ATTEMPT . ' to ' . $PROTOCOL . $ip . ':' . $this->port . '...');
             $this->socket = @stream_socket_client($PROTOCOL . $ip.':'. $this->port, $this->error_no, $this->error_str, $this->timeout, STREAM_CLIENT_CONNECT,$context);
             if ($this->socket) {
-                socket_set_timeout($this->socket, $this->timeout);
+                stream_set_timeout($this->socket, $this->timeout);
                 $this->write('/login', false);
                 $this->write('=name=' . $login, false);
                 $this->write('=password=' . $password);
@@ -278,6 +278,18 @@ class RouterosAPI
 
 
     /**
+     * Read one byte from the socket as a number (0 when nothing could be read)
+     *
+     * @return int
+     */
+    private function readByte()
+    {
+        $c = fread($this->socket, 1);
+        return ($c === false || $c === '') ? 0 : ord($c);
+    }
+
+
+    /**
      * Read data from Router OS
      *
      * @param boolean     $parse      Parse the data? default: true
@@ -291,7 +303,7 @@ class RouterosAPI
         while (true) {
             // Read the first byte of input which gives us some or all of the length
             // of the remaining reply.
-            $BYTE   = ord(fread($this->socket, 1));
+            $BYTE   = $this->readByte();
             $LENGTH = 0;
             // If the first bit is set then we need to remove the first four bits, shift left 8
             // and then read another byte in.
@@ -300,21 +312,21 @@ class RouterosAPI
             // and then read in yet another byte.
             if ($BYTE & 128) {
                 if (($BYTE & 192) == 128) {
-                    $LENGTH = (($BYTE & 63) << 8) + ord(fread($this->socket, 1));
+                    $LENGTH = (($BYTE & 63) << 8) + $this->readByte();
                 } else {
                     if (($BYTE & 224) == 192) {
-                        $LENGTH = (($BYTE & 31) << 8) + ord(fread($this->socket, 1));
-                        $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
+                        $LENGTH = (($BYTE & 31) << 8) + $this->readByte();
+                        $LENGTH = ($LENGTH << 8) + $this->readByte();
                     } else {
                         if (($BYTE & 240) == 224) {
-                            $LENGTH = (($BYTE & 15) << 8) + ord(fread($this->socket, 1));
-                            $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
-                            $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
+                            $LENGTH = (($BYTE & 15) << 8) + $this->readByte();
+                            $LENGTH = ($LENGTH << 8) + $this->readByte();
+                            $LENGTH = ($LENGTH << 8) + $this->readByte();
                         } else {
-                            $LENGTH = ord(fread($this->socket, 1));
-                            $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
-                            $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
-                            $LENGTH = ($LENGTH << 8) + ord(fread($this->socket, 1));
+                            $LENGTH = $this->readByte();
+                            $LENGTH = ($LENGTH << 8) + $this->readByte();
+                            $LENGTH = ($LENGTH << 8) + $this->readByte();
+                            $LENGTH = ($LENGTH << 8) + $this->readByte();
                         }
                     }
                 }
@@ -330,7 +342,11 @@ class RouterosAPI
                 $retlen = 0;
                 while ($retlen < $LENGTH) {
                     $toread = $LENGTH - $retlen;
-                    $_ .= fread($this->socket, $toread);
+                    $chunk = fread($this->socket, $toread);
+                    if ($chunk === false || ($chunk === '' && feof($this->socket))) {
+                        break;
+                    }
+                    $_ .= $chunk;
                     $retlen = strlen($_);
                 }
                 $RESPONSE[] = $_;
@@ -342,7 +358,7 @@ class RouterosAPI
                 $receiveddone = true;
             }
 
-            $STATUS = socket_get_status($this->socket);
+            $STATUS = stream_get_meta_data($this->socket);
             if ($LENGTH > 0) {
                 $this->debug('>>> [' . $LENGTH . ', ' . $STATUS['unread_bytes'] . ']' . $_);
             }
