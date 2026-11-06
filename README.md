@@ -1,11 +1,11 @@
+🇬🇧 **English** · 🇮🇩 [Bahasa Indonesia](#bahasa-indonesia)
+
 # Mikhmon for Windows: Local Mikhmon v3 Server for PC (RouterOS v6 and v7)
 
 **Mikhmon for Windows** runs [Mikhmon v3 Community Edition](https://github.com/mikhmon-pro/mikhmon-v3) on your Windows PC. You don't need XAMPP or a separate PHP install. Extract the ZIP, double-click `MikhmonServer.cmd`, and open Mikhmon in your browser. It works with **RouterOS v6 and RouterOS v7**.
 
 > ### ⚡ Prefer not to keep a PC running?
 > **[Mikhmon Online at mikhmon.pro: just Rp10.000/month, tunnel included for up to 100 routers →](https://mikhmon.pro/fast?utm_source=github&utm_medium=readme&utm_campaign=mikhmon-windows)**
-
-🇬🇧 **English** · 🇮🇩 [Bahasa Indonesia](#bahasa-indonesia)
 
 ## Download
 
